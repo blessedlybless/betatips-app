@@ -1,0 +1,42 @@
+/* src/components/CodeInput.css */
+
+.code-input-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1em;
+}
+
+.code-input-form input[type="text"] {
+  padding: 0.8em;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ffd700;
+  margin-bottom: 1em;
+  background: #222;
+  color: #ffd700;
+  outline: none;
+}
+
+.code-input-form button {
+  background: #ffd700;
+  color: #222;
+  border: none;
+  padding: 0.8em 2em;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.code-input-form button:disabled {
+  background: #bbb;
+  color: #333;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #e53935;
+  margin-bottom: 1em;
+  font-size: 15px;
+}

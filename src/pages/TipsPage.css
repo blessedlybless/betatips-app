@@ -1,0 +1,65 @@
+/* src/pages/TipsPage.css */
+
+.tips-page {
+  background: #191919;
+  min-height: 100vh;
+  padding: 2em;
+  border-radius: 12px;
+}
+
+.tips-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.back-btn {
+  background: #ffd700;
+  color: #191919;
+  border: none;
+  border-radius: 6px;
+  padding: 8px 20px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tips-header h2 {
+  color: #ffd700;
+  margin-left: 1em;
+}
+
+.loading, .no-tips {
+  margin-top: 2em;
+  text-align: center;
+  color: #ffd700;
+}
+
+.games-list {
+  margin-top: 2em;
+}
+
+
+.filter-bar {
+  display: flex;
+  gap: 14px;
+  margin-bottom: 28px;
+  justify-content: start;
+}
+.filter-bar button {
+  padding: 6px 18px;
+  border-radius: 6px;
+  border: none;
+  background: #eef2fa;
+  color: #1a2749;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.14s;
+}
+.filter-bar button.active {
+  background: #2086d7;
+  color: #fff;
+}
+.filter-bar button:hover {
+  background: #c6dbfa;
+}

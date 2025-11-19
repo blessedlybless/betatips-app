@@ -1,0 +1,35 @@
+/* src/pages/VIPPage.css */
+
+.vip-page {
+  background: #101010;
+  min-height: 100vh;
+  padding: 2em;
+}
+
+.vip-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2em;
+}
+
+.vip-status {
+  text-align: right;
+}
+
+.days-remaining {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 2em;
+  color: #ffd700;
+}
+
+.games-list {
+  margin-top: 2em;
+}
+
+/* Adjust these styles as needed for your page! */
