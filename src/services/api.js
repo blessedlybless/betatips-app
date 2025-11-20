@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Change this to your actual PHP backend URL
-const API_URL = import.meta.env.VITE_API_URL || 'http://betatips.com.ng/tiptoe-api';
+const API_URL = import.meta.env.VITE_API_URL || 'https://api.betatips.com.ng';
 
 
 const api = axios.create({

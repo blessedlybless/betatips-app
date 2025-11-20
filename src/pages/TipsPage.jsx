@@ -6,7 +6,7 @@ import './TipsPage.css';
 
 // Fetch tips by date filter
 async function fetchTipsByDate(dateFilter) {
-  const url = `http://betatips.com.ng/tiptoe-api/tips/public/${dateFilter}`;
+  const url = `https://api.betatips.com.ng/tips/public/${dateFilter}`;
   const res = await fetch(url);
   if (!res.ok) throw new Error("Failed to fetch tips");
   return await res.json();

@@ -1,11 +1,11 @@
 /* src/components/TipCard.css */
 .tip-card {
-  width: 96%;
-  max-width: 250px;
-  min-width: 110px;
+  width: 100%;
+  max-width: 180px; /* Reduced from 250px */
+  min-width: 90px; /* Reduced from 110px */
   background: linear-gradient(120deg, #393399 0%, #07c8f9 100%);
   color: #fff;
-  padding: 30px 15px;
+  padding: 20px 12px; /* Reduced from 30px 15px */
   border-radius: 18px;
   text-align: center;
   cursor: pointer;
@@ -22,15 +22,15 @@
 }
 
 .tip-icon {
-  font-size: 32px;
-  margin-bottom: 8px;
+  font-size: 28px; /* Reduced from 32px */
+  margin-bottom: 6px; /* Reduced from 8px */
   display: block;
 }
 
 .tip-card h3 {
-  font-size: 20px;
-  margin-bottom: 12px;
-  letter-spacing: 1.1px;
+  font-size: 16px; /* Reduced from 20px */
+  margin-bottom: 8px; /* Reduced from 12px */
+  letter-spacing: 0.8px; /* Reduced from 1.1px */
   color: #fff;
   font-weight: 700;
 }
@@ -50,10 +50,78 @@
 .vip-badge {
   background: linear-gradient(90deg, #fd5f00 40%, #ff0066 100%);
   color: #fff;
-  padding: 6px 13px;
+  padding: 5px 10px; /* Reduced from 6px 13px */
   border-radius: 6px;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 11px; /* Reduced from 13px */
   box-shadow: 0 2px 6px #ff006652;
   margin-top: 6px;
+}
+
+/* Mobile optimizations */
+@media (max-width: 768px) {
+  .tip-card {
+    max-width: 140px; /* Even smaller on tablets */
+    padding: 16px 10px;
+  }
+  
+  .tip-icon {
+    font-size: 24px;
+    margin-bottom: 4px;
+  }
+  
+  .tip-card h3 {
+    font-size: 14px;
+    margin-bottom: 6px;
+    letter-spacing: 0.6px;
+  }
+  
+  .vip-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+  }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+  .tip-card {
+    max-width: 110px; /* Smaller for phones */
+    min-width: 85px;
+    padding: 12px 8px;
+  }
+  
+  .tip-icon {
+    font-size: 20px;
+    margin-bottom: 3px;
+  }
+  
+  .tip-card h3 {
+    font-size: 12px;
+    margin-bottom: 5px;
+    letter-spacing: 0.5px;
+  }
+  
+  .vip-badge {
+    padding: 3px 7px;
+    font-size: 9px;
+    margin-top: 4px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .tip-card {
+    max-width: 95px;
+    min-width: 75px;
+    padding: 10px 6px;
+  }
+  
+  .tip-icon {
+    font-size: 18px;
+  }
+  
+  .tip-card h3 {
+    font-size: 11px;
+    margin-bottom: 4px;
+  }
 }

@@ -63,3 +63,57 @@
 .filter-bar button:hover {
   background: #c6dbfa;
 }
+
+/* Date filter buttons */
+.date-filters {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  overflow-x: auto;
+  padding: 10px 5px;
+  width: 100%;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.date-filters::-webkit-scrollbar {
+  display: none;
+}
+
+.date-filters button {
+  flex-shrink: 0;
+  padding: 8px 16px;
+  border: none;
+  background: #f0f0f0;
+  border-radius: 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.date-filters button.active {
+  background: linear-gradient(120deg, #393399 0%, #07c8f9 100%);
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .date-filters {
+    gap: 6px;
+    padding: 8px 3px;
+  }
+  
+  .date-filters button {
+    padding: 6px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .date-filters button {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+}
