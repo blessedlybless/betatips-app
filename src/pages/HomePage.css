@@ -8,8 +8,6 @@ body {
   font-family: 'Arial Rounded MT', 'Arial', sans-serif;
 }
 
-/* ========== FULL BACKGROUND SOLUTION ========== */
-
 .app-container {
   position: relative;
   min-height: 100vh;
@@ -21,8 +19,6 @@ body {
   overflow-x: hidden;
   background: url('/stadium-bg.jpg') center center/cover no-repeat fixed;
 }
-
-/* Optional dark overlay */
 
 .app-container::after {
   content: "";
@@ -66,7 +62,6 @@ body {
   font-weight: bold;
 }
 
-/* Tips Grid - Horizontal Scroll on Mobile */
 .tips-grid {
   width: 100%;
   max-width: 1080px;
@@ -116,7 +111,7 @@ body {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* Responsive adjustments for tablets */
+/* Tablet */
 @media (max-width: 900px) {
   .tips-grid {
     grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
@@ -134,7 +129,6 @@ body {
     font-size: 20px;
   }
 
-  /* Change grid to flex for horizontal scroll */
   .tips-grid {
     display: flex;
     flex-direction: row;
@@ -142,21 +136,28 @@ body {
     overflow-x: auto;
     overflow-y: hidden;
     gap: 12px;
-    justify-items: flex-start;
     justify-content: flex-start;
-    padding: 10px 5px;
+    align-items: stretch;
+    padding: 10px 8px 15px 8px;
     -webkit-overflow-scrolling: touch;
     scroll-snap-type: x mandatory;
     scrollbar-width: thin;
+    width: 100%;
+    max-width: 100%;
+    margin: 0 0 10px 0;
   }
 
-  /* Hide scrollbar but keep functionality */
   .tips-grid::-webkit-scrollbar {
-    height: 4px;
+    height: 5px;
+  }
+
+  .tips-grid::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 4px;
   }
 
   .tips-grid::-webkit-scrollbar-thumb {
-    background: rgba(255, 215, 0, 0.5);
+    background: rgba(255, 215, 0, 0.6);
     border-radius: 4px;
   }
 
@@ -170,7 +171,6 @@ body {
   }
 }
 
-/* Small phones */
 @media (max-width: 480px) {
   .app-container {
     padding: 15px 0;
@@ -182,42 +182,21 @@ body {
 
   .app-subtitle {
     font-size: 18px;
-    margin-bottom: 12px;
   }
 
   .tips-grid {
     gap: 10px;
-    padding: 8px 5px;
+    padding: 8px 5px 12px 5px;
   }
 
   .vip-join-btn {
     padding: 12px 24px;
     font-size: 17px;
-    letter-spacing: 1px;
-  }
-
-  .vip-join-btn .vip-btn-icon {
-    font-size: 20px;
-    margin-right: 5px;
   }
 }
 
-/* Very small screens */
 @media (max-width: 360px) {
-  .app-logo {
-    font-size: 26px;
-  }
-
-  .app-subtitle {
-    font-size: 16px;
-  }
-
   .tips-grid {
     gap: 8px;
-  }
-
-  .vip-join-btn {
-    padding: 10px 20px;
-    font-size: 15px;
   }
 }
