@@ -62,6 +62,7 @@ body {
   font-weight: bold;
 }
 
+/* Tips Grid - Desktop */
 .tips-grid {
   width: 100%;
   max-width: 1080px;
@@ -69,8 +70,8 @@ body {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px;
-  justify-items: center;
   padding: 0 10px;
+  box-sizing: border-box;
 }
 
 .app-footer {
@@ -111,15 +112,15 @@ body {
   transform: translateY(-2px) scale(1.03);
 }
 
-/* Tablet */
+/* Tablet - 3 columns */
 @media (max-width: 900px) {
   .tips-grid {
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: 16px;
   }
 }
 
-/* Mobile - Horizontal Scroll */
+/* Mobile - FORCE 2 columns */
 @media (max-width: 700px) {
   .app-logo {
     font-size: 36px;
@@ -130,35 +131,13 @@ body {
   }
 
   .tips-grid {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: auto;
-    overflow-y: hidden;
+    display: grid !important; /* Force grid */
+    grid-template-columns: 1fr 1fr !important; /* Force 2 equal columns */
     gap: 12px;
-    justify-content: flex-start;
-    align-items: stretch;
-    padding: 10px 8px 15px 8px;
-    -webkit-overflow-scrolling: touch;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
+    padding: 0 8px;
     width: 100%;
     max-width: 100%;
-    margin: 0 0 10px 0;
-  }
-
-  .tips-grid::-webkit-scrollbar {
-    height: 5px;
-  }
-
-  .tips-grid::-webkit-scrollbar-track {
-    background: rgba(255, 255, 255, 0.1);
-    border-radius: 4px;
-  }
-
-  .tips-grid::-webkit-scrollbar-thumb {
-    background: rgba(255, 215, 0, 0.6);
-    border-radius: 4px;
+    box-sizing: border-box;
   }
 
   .vip-join-btn {
@@ -171,6 +150,7 @@ body {
   }
 }
 
+/* Small phones */
 @media (max-width: 480px) {
   .app-container {
     padding: 15px 0;
@@ -182,21 +162,43 @@ body {
 
   .app-subtitle {
     font-size: 18px;
+    margin-bottom: 12px;
   }
 
   .tips-grid {
+    grid-template-columns: 1fr 1fr !important; /* Keep 2 columns */
     gap: 10px;
-    padding: 8px 5px 12px 5px;
+    padding: 0 5px;
   }
 
   .vip-join-btn {
     padding: 12px 24px;
     font-size: 17px;
+    letter-spacing: 1px;
+  }
+
+  .vip-join-btn .vip-btn-icon {
+    font-size: 20px;
+    margin-right: 5px;
   }
 }
 
 @media (max-width: 360px) {
+  .app-logo {
+    font-size: 26px;
+  }
+
+  .app-subtitle {
+    font-size: 16px;
+  }
+
   .tips-grid {
+    grid-template-columns: 1fr 1fr !important; /* Keep 2 columns */
     gap: 8px;
+  }
+
+  .vip-join-btn {
+    padding: 10px 20px;
+    font-size: 15px;
   }
 }

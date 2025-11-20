@@ -1,202 +1,113 @@
-/* src/pages/HomePage.css */
+/* src/components/TipCard.css */
 
-body {
-  width: 100vw;
-  min-height: 100vh;
-  margin: 0;
-  background: #181a20;
-  font-family: 'Arial Rounded MT', 'Arial', sans-serif;
-}
-
-.app-container {
-  position: relative;
-  min-height: 100vh;
+.tip-card {
   width: 100%;
+  aspect-ratio: 1 / 1; /* Square cards - equal width and height */
+  background: linear-gradient(120deg, #393399 0%, #07c8f9 100%);
+  color: #fff;
+  padding: 15px;
+  border-radius: 18px;
+  text-align: center;
+  cursor: pointer;
+  transition: box-shadow 0.22s, transform 0.16s, background 0.23s;
+  position: relative;
+  box-sizing: border-box;
+  box-shadow: 0 2px 10px rgba(115,134,255,0.13);
+  border: 1.5px solid rgba(255,255,255,0.06);
+  overflow: hidden;
+  font-weight: 600;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 20px 0;
-  overflow-x: hidden;
-  background: url('/stadium-bg.jpg') center center/cover no-repeat fixed;
+  justify-content: center;
 }
 
-.app-container::after {
-  content: "";
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  pointer-events: none;
-  z-index: 1;
-  background: linear-gradient(
-    to right,
-    #181a20 0px,
-    rgba(24,26,32,0.82) 100px,
-    rgba(24,26,32,0) 320px,
-    rgba(24,26,32,0) calc(100% - 320px),
-    rgba(24,26,32,0.82) calc(100% - 100px),
-    #181a20 100%
-  );
+.tip-icon {
+  font-size: 32px;
+  margin-bottom: 8px;
+  display: block;
 }
 
-.app-container > * {
-  position: relative;
-  z-index: 2;
-}
-
-.app-header, .app-footer {
-  width: 100%;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.app-logo {
-  font-size: 48px;
-  color: #ffd700;
-  margin-bottom: 10px;
-  font-weight: bold;
-}
-
-.app-subtitle {
-  font-size: 24px;
-  color: #fff;
-  margin-bottom: 15px;
-  font-weight: bold;
-}
-
-/* Tips Grid - Always Grid Layout */
-.tips-grid {
-  width: 100%;
-  max-width: 1080px;
-  margin: 0 auto 10px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  padding: 0 10px;
-}
-
-.app-footer {
-  text-align: center;
-  margin-top: 8px;
-}
-
-.vip-join-btn {
-  background: linear-gradient(92deg, #4e54c8 0%, #8f94fb 100%);
+.tip-card h3 {
+  font-size: 18px;
+  margin: 0;
+  letter-spacing: 1px;
   color: #fff;
   font-weight: 700;
-  border: none;
-  padding: 22px 60px;
-  font-size: 25px;
-  letter-spacing: 2px;
-  border-radius: 999px;
-  box-shadow: 0 6px 18px rgba(78, 84, 200, 0.18), 0 1.5px 3.5px rgba(100,0,220,0.08);
-  cursor: pointer;
-  transition: background 0.25s, box-shadow 0.2s, transform 0.18s;
-  margin-top: 8px;
-  outline: none;
-  position: relative;
-  overflow: hidden;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
 }
 
-.vip-join-btn .vip-btn-icon {
-  font-size: 28px;
-  margin-right: 7px;
-  vertical-align: middle;
+.tip-card:hover {
+  background: linear-gradient(120deg, #43cea2 0%, #185a9d 100%);
+  box-shadow: 0 8px 28px rgba(55,230,220,0.09), 0 2.5px 10px rgba(24,90,157,0.15);
+  transform: translateY(-4px) scale(1.02);
 }
 
-.vip-join-btn:hover {
-  background: linear-gradient(92deg, #8f94fb 30%, #8e71ff 100%);
-  box-shadow: 0 10px 25px rgba(79, 91, 250, 0.24), 0 2.5px 7px rgba(100,0,220,0.14);
-  transform: translateY(-2px) scale(1.03);
+.tip-card:active {
+  background: linear-gradient(120deg, #393399 0%, #07c8f9 100%);
+  box-shadow: 0 1.5px 5px rgba(115,134,255,0.09);
+  transform: scale(0.98);
 }
 
-/* Tablet - 3 columns */
-@media (max-width: 900px) {
-  .tips-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-  }
+.vip-badge {
+  background: linear-gradient(90deg, #fd5f00 40%, #ff0066 100%);
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 11px;
+  box-shadow: 0 2px 6px #ff006652;
+  margin-top: 6px;
 }
 
-/* Mobile - 2 columns like the image */
+/* Mobile - smaller text */
 @media (max-width: 700px) {
-  .app-logo {
-    font-size: 36px;
+  .tip-card {
+    padding: 12px;
   }
-
-  .app-subtitle {
-    font-size: 20px;
+  
+  .tip-icon {
+    font-size: 28px;
+    margin-bottom: 6px;
   }
-
-  .tips-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 12px;
-    padding: 0 8px;
-    max-width: 100%;
+  
+  .tip-card h3 {
+    font-size: 16px;
+    letter-spacing: 0.8px;
   }
+}
 
-  .vip-join-btn {
-    padding: 14px 28px;
-    font-size: 19px;
+@media (max-width: 480px) {
+  .tip-card {
+    padding: 10px;
   }
+  
+  .tip-icon {
+    font-size: 24px;
+    margin-bottom: 5px;
+  }
+  
+  .tip-card h3 {
+    font-size: 14px;
+    letter-spacing: 0.6px;
+  }
+  
+  .vip-badge {
+    padding: 4px 8px;
+    font-size: 10px;
+    margin-top: 4px;
+  }
+}
 
-  .vip-join-btn .vip-btn-icon {
+@media (max-width: 360px) {
+  .tip-card {
+    padding: 8px;
+  }
+  
+  .tip-icon {
     font-size: 22px;
   }
-}
-
-/* Small phones - still 2 columns */
-@media (max-width: 480px) {
-  .app-container {
-    padding: 15px 0;
-  }
-
-  .app-logo {
-    font-size: 30px;
-  }
-
-  .app-subtitle {
-    font-size: 18px;
-    margin-bottom: 12px;
-  }
-
-  .tips-grid {
-    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns */
-    gap: 10px;
-    padding: 0 5px;
-  }
-
-  .vip-join-btn {
-    padding: 12px 24px;
-    font-size: 17px;
-    letter-spacing: 1px;
-  }
-
-  .vip-join-btn .vip-btn-icon {
-    font-size: 20px;
-    margin-right: 5px;
-  }
-}
-
-/* Very small screens - still 2 columns */
-@media (max-width: 360px) {
-  .app-logo {
-    font-size: 26px;
-  }
-
-  .app-subtitle {
-    font-size: 16px;
-  }
-
-  .tips-grid {
-    grid-template-columns: repeat(2, 1fr); /* Keep 2 columns */
-    gap: 8px;
-  }
-
-  .vip-join-btn {
-    padding: 10px 20px;
-    font-size: 15px;
+  
+  .tip-card h3 {
+    font-size: 13px;
   }
 }
