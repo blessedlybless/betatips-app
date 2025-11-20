@@ -18,11 +18,6 @@ function HomePage() {
     { title: 'TENNIS', category: 'tennis', isVIP: false },
   ];
 
-  const vipCategories = [
-    { title: 'HT. FT. VIP ARCHIVE', category: 'ht-ft-archive', isVIP: true },
-    { title: 'CORRECT SCORE VIP ARCHIVE', category: 'correct-score', isVIP: true },
-  ];
-
   return (
     <div className="app-container">
       <Navbar />
@@ -34,14 +29,6 @@ function HomePage() {
         {categories.map((cat, index) => (
           <TipCard
             key={index}
-            title={cat.title}
-            category={cat.category}
-            isVIP={cat.isVIP}
-          />
-        ))}
-        {vipCategories.map((cat, index) => (
-          <TipCard
-            key={`vip-${index}`}
             title={cat.title}
             category={cat.category}
             isVIP={cat.isVIP}
