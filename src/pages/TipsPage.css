@@ -5,6 +5,9 @@
   min-height: 100vh;
   padding: 2em;
   border-radius: 12px;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .tips-header {
@@ -39,14 +42,22 @@
   margin-top: 2em;
 }
 
-
 .filter-bar {
   display: flex;
   gap: 14px;
   margin-bottom: 28px;
   justify-content: start;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
+
+.filter-bar::-webkit-scrollbar {
+  display: none;
+}
+
 .filter-bar button {
+  flex-shrink: 0;
   padding: 6px 18px;
   border-radius: 6px;
   border: none;
@@ -55,11 +66,14 @@
   font-weight: 600;
   cursor: pointer;
   transition: background 0.14s;
+  white-space: nowrap;
 }
+
 .filter-bar button.active {
   background: #2086d7;
   color: #fff;
 }
+
 .filter-bar button:hover {
   background: #c6dbfa;
 }
@@ -71,9 +85,11 @@
   justify-content: flex-start;
   align-items: center;
   overflow-x: auto;
+  overflow-y: hidden;
   padding: 10px 5px;
   width: 100%;
   -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
   scrollbar-width: none;
 }
 
@@ -83,7 +99,7 @@
 
 .date-filters button {
   flex-shrink: 0;
-  padding: 8px 16px;
+  padding: 10px 18px;
   border: none;
   background: #f0f0f0;
   border-radius: 20px;
@@ -92,6 +108,7 @@
   font-size: 14px;
   font-weight: 500;
   transition: all 0.2s;
+  min-width: fit-content;
 }
 
 .date-filters button.active {
@@ -99,21 +116,156 @@
   color: white;
 }
 
+/* Games Container - Horizontal Scroll on Mobile */
+.games-container,
+.tips-list,
+.games-list {
+  display: flex;
+  gap: 16px;
+  padding: 16px 0;
+  width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x mandatory;
+}
+
+.games-container::-webkit-scrollbar,
+.tips-list::-webkit-scrollbar,
+.games-list::-webkit-scrollbar {
+  height: 4px;
+}
+
+.games-container::-webkit-scrollbar-thumb,
+.tips-list::-webkit-scrollbar-thumb,
+.games-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 215, 0, 0.5);
+  border-radius: 4px;
+}
+
+/* Desktop - Grid Layout */
+@media (min-width: 769px) {
+  .games-container,
+  .tips-list,
+  .games-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    overflow-x: visible;
+  }
+}
+
+/* Individual Game Card */
+.game-card,
+.match-card {
+  background: #2a2a2a;
+  border-radius: 12px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  border: 1px solid #3a3a3a;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  color: #fff;
+}
+
+/* Mobile Styles */
 @media (max-width: 768px) {
+  .tips-page {
+    padding: 1.5em 1em;
+  }
+
+  .tips-header {
+    margin-bottom: 1.5em;
+  }
+
+  .tips-header h2 {
+    font-size: 1.3rem;
+    margin-left: 0.5em;
+  }
+
+  .back-btn {
+    padding: 6px 14px;
+    font-size: 0.9rem;
+  }
+  
+  .filter-bar {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .filter-bar button {
+    padding: 5px 14px;
+    font-size: 0.85rem;
+  }
+  
   .date-filters {
     gap: 6px;
-    padding: 8px 3px;
+    padding: 8px 5px;
   }
   
   .date-filters button {
-    padding: 6px 12px;
-    font-size: 12px;
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+  
+  .games-container,
+  .tips-list,
+  .games-list {
+    flex-direction: row;
+    flex-wrap: nowrap;
+    gap: 12px;
+    padding: 12px 5px;
+  }
+  
+  .game-card,
+  .match-card {
+    min-width: 280px;
+    max-width: 320px;
+    width: 85vw;
+    padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
+  .tips-page {
+    padding: 1em 0.5em;
+  }
+
+  .tips-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
+    margin-bottom: 1em;
+  }
+
+  .tips-header h2 {
+    font-size: 1.1rem;
+    margin-left: 0;
+  }
+
+  .back-btn {
+    padding: 5px 12px;
+    font-size: 0.8rem;
+  }
+
+  .filter-bar button {
+    padding: 4px 12px;
+    font-size: 0.8rem;
+  }
+  
   .date-filters button {
-    padding: 5px 10px;
-    font-size: 11px;
+    padding: 7px 12px;
+    font-size: 12px;
+  }
+  
+  .game-card,
+  .match-card {
+    min-width: 260px;
+    max-width: 280px;
+    width: 90vw;
+    padding: 10px;
+  }
+
+  .games-list {
+    margin-top: 1em;
   }
 }
